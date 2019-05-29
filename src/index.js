@@ -1,24 +1,16 @@
 import './config/DevToolsConfig';
 import './config/ReactotronConfig';
+import React from 'react';
 
-import React, { Component } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { Provider } from 'react-redux';
 
-export default class App extends Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text style>Welcome to React Native!</Text>
-      </View>
-    );
-  }
-}
+import store from './store';
+import TodoList from './TodoList';
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-});
+const App = () => (
+  <Provider store={store}>
+    <TodoList />
+  </Provider>
+);
+
+export default App;
